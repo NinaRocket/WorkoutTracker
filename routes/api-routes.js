@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const db = require("../models");
+const Exercise = require("../models/exercise.js");
 
 
 
 //get function to retrieve previous workout
 router.get("/api/workouts", (req, res)=>{
-    db.Exercise.find({})
+    Exercise.find({})
     .then(dbExercise=>{
         res.json(dbExercise);
     })
@@ -16,7 +16,7 @@ router.get("/api/workouts", (req, res)=>{
 
 //post new workout
 router.post("/api/workouts", (req, res) => {
-  db.Exercise.create({})
+  Exercise.create({})
     .then(dbExercise => {
       res.json(dbExercise);
     })
