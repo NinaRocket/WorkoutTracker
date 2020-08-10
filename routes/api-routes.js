@@ -26,12 +26,10 @@ router.post("/api/workouts", (req, res) => {
 })
 //update workout
 router.put('/api/workouts/:id', (req, res) => {
-  let duration =+ req.body.duration
   Exercise.findByIdAndUpdate(req.params.id, {
       $push: {
           exercises: req.body,
       }, 
-      totalDuration: duration
   }).then(dbWorkout => {
       res.json(dbWorkout);
   })
